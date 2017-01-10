@@ -9,8 +9,6 @@ let businessListModule = angular.module('businessList', [
 .config(($stateProvider, $urlRouterProvider) => {
   "ngInject";
 
-  $urlRouterProvider.otherwise('/');
-
   $stateProvider
     .state('businessList', {
       url: '/',

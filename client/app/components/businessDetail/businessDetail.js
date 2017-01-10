@@ -5,8 +5,6 @@ let businessDetailModule = angular.module('businessDetail', [])
 .config(($stateProvider, $urlRouterProvider) => {
   "ngInject";
 
-  $urlRouterProvider.otherwise('/');
-
   $stateProvider
     .state('businessesDetail', {
       url: '/businesses/:id',
