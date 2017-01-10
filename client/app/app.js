@@ -6,7 +6,6 @@ import 'normalize.css';
 
 angular.module('app', [
     uiRouter,
-    Common,
     Components
   ])
   .config(($locationProvider) => {
