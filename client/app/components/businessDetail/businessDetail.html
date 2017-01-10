@@ -3,6 +3,9 @@
 <main>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
+      <div ng-if="$ctrl.loadingBusiness">
+        Loading...
+      </div>
       address: <span ng-bind="$ctrl.business.address"></span><br/>
       address2: <span ng-bind="$ctrl.business.address2"></span><br/>
       city: <span ng-bind="$ctrl.business.city"></span><br/>

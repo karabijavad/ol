@@ -1,5 +1,6 @@
 class businessesListController {
   constructor($http) {
+    this.name = "businessList"
     let ctrl = this;
     this.$http = $http;
 
