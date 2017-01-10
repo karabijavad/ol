@@ -6,6 +6,7 @@ import businessesListComponent from './businessesList.component';
 let businessesListModule = angular.module('businessesList', [
   uiRouter,
   uiGrid,
+  'ui.grid.pagination',
 ])
 
 .component('businessesList', businessesListComponent)

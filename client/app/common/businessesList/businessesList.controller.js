@@ -3,11 +3,13 @@ class businessesListController {
     let ctrl = this;
     this.$http = $http;
 
-    this.pageSize = 1;
+    this.page = 1;
     this.perPage = 50;
     this.apiUrl = 'http://ec2-54-84-251-148.compute-1.amazonaws.com/businesses/';
 
     this.gridOptions = {
+      useExternalPagination: true,
+      enablePaginationControls: false,
       columnDefs: [
         { name:'id'},
         { name: 'address'},
@@ -31,11 +33,24 @@ class businessesListController {
 
   fetchBusinesses() {
     return this.$http.get(this.apiUrl, {params: {
-      page: this.pageSize,
+      page: this.page,
       per_page: this.perPage,
     }}).then((response) => {
       this.gridOptions.data = response.data.businesses;
     });
+  }
+
+  previousPage() {
+    this.page -= 1;
+    if (this.page < 1) {
+      this.page = 1;
+    }
+    this.fetchBusinesses();
+  }
+
+  nextPage() {
+    this.page += 1;
+    this.fetchBusinesses();
   }
 }
 
