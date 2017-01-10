@@ -11,7 +11,14 @@ class businessesListController {
       useExternalPagination: true,
       enablePaginationControls: false,
       columnDefs: [
-        { name:'id'},
+        {
+          field: 'id',
+          cellTemplate: `
+            <div class="ui-grid-cell-contents">
+              <a ui-sref='businessesDetail({id: grid.getCellValue(row, col)})'>{{grid.getCellValue(row, col)}}</a>
+            </div>
+          `,
+        },
         { name: 'address'},
         { name: 'address2'},
         { name: 'city'},

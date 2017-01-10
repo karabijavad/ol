@@ -1,9 +1,9 @@
-import HomeModule from './home'
+import businessDetailModule from './businessDetail'
 
-describe('Home', () => {
+describe('businessDetail', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 
-  beforeEach(window.module(HomeModule));
+  beforeEach(window.module(businessDetailModule));
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
@@ -15,10 +15,10 @@ describe('Home', () => {
 
   describe('Module', () => {
     // top-level specs: i.e., routes, injection, naming
-    it('default component should be home', () => {
+    it('default component should be businessDetail', () => {
       $location.url('/');
       $rootScope.$digest();
-      expect($state.current.component).to.eq('home');
+      expect($state.current.component).to.eq('businessDetail');
     });
   });
 
@@ -26,7 +26,7 @@ describe('Home', () => {
     // controller specs
     let controller;
     beforeEach(() => {
-      controller = $componentController('home', {
+      controller = $componentController('businessDetail', {
         $scope: $rootScope.$new()
       });
     });
@@ -42,12 +42,12 @@ describe('Home', () => {
 
     beforeEach(() => {
       scope = $rootScope.$new();
-      template = $compile('<home></home>')(scope);
+      template = $compile('<businessDetail></businessDetail>')(scope);
       scope.$apply();
     });
 
     it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('Found in home.html');
+      expect(template.find('h1').html()).to.eq('Found in businessDetail.html');
     });
 
   });
