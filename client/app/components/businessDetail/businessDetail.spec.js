@@ -14,41 +14,11 @@ describe('businessDetail', () => {
   }));
 
   describe('Module', () => {
-    // top-level specs: i.e., routes, injection, naming
-    it('default component should be businessDetail', () => {
-      $location.url('/');
-      $rootScope.$digest();
-      expect($state.current.component).to.eq('businessDetail');
-    });
   });
 
   describe('Controller', () => {
-    // controller specs
-    let controller;
-    beforeEach(() => {
-      controller = $componentController('businessDetail', {
-        $scope: $rootScope.$new()
-      });
-    });
-
-    it('has a name property', () => { // erase if removing this.name from the controller
-      expect(controller).to.have.property('name');
-    });
   });
 
   describe('View', () => {
-    // view layer specs.
-    let scope, template;
-
-    beforeEach(() => {
-      scope = $rootScope.$new();
-      template = $compile('<businessDetail></businessDetail>')(scope);
-      scope.$apply();
-    });
-
-    it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('Found in businessDetail.html');
-    });
-
   });
 });
