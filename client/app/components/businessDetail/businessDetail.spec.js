@@ -1,24 +1,23 @@
 import businessDetailModule from './businessDetail'
+import businessDetailController from './businessDetail.controller'
 
 describe('businessDetail', () => {
-  let $rootScope, $state, $location, $componentController, $compile;
+  let $http, $httpBackend, $stateParams;
 
-  beforeEach(window.module(businessDetailModule));
+  beforeEach(() => {
+    window.module(businessDetailModule);
+  });
 
   beforeEach(inject(($injector) => {
-    $rootScope = $injector.get('$rootScope');
-    $componentController = $injector.get('$componentController');
-    $state = $injector.get('$state');
-    $location = $injector.get('$location');
-    $compile = $injector.get('$compile');
+    $http = $injector.get('$http');
+    $stateParams = $injector.get('$stateParams');
   }));
 
-  describe('Module', () => {
+  describe('', () => {
+    it('page should begin with loading message', () => {
+      let ctrl = new businessDetailController($stateParams, $http);
+      expect(ctrl.loadingBusiness).to.eq(true);
+    })
   });
 
-  describe('Controller', () => {
-  });
-
-  describe('View', () => {
-  });
 });
