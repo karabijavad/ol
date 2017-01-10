@@ -1,9 +1,15 @@
-<header>
-</header>
-<main>
+<section class="businesses-list">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <businesses-list></businesses-list>
+    <div class="col-md-12">
+      <div ui-grid="$ctrl.gridOptions" ui-grid-pagination></div>
     </div>
   </div>
-</main>
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" ng-click="$ctrl.previousPage()">Previous</a></li>
+        <li class="page-item"><a class="page-link" ng-click="$ctrl.nextPage()">Next</a></li>
+      </div>
+      </ul>
+  </div>
+</section>

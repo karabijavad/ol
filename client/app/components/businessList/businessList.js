@@ -1,9 +1,12 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import uiGrid from 'angular-ui-grid';
 import businessListComponent from './businessList.component';
 
 let businessListModule = angular.module('businessList', [
-  uiRouter
+  uiRouter,
+  uiGrid,
+  'ui.grid.pagination',
 ])
 
 .config(($stateProvider, $urlRouterProvider) => {
