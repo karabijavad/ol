@@ -14,7 +14,7 @@ let businessListModule = angular.module('businessList', [
 
   $stateProvider
     .state('businessList', {
-      url: '/',
+      url: '/?page',
       component: 'businessList'
     })
 })

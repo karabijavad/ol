@@ -1,9 +1,11 @@
 class businessesListController {
-  constructor($http) {
+  constructor($http, $state, $stateParams) {
     let ctrl = this;
     this.$http = $http;
+    this.$state = $state;
+    this.$stateParams = $stateParams;
 
-    this.page = 1;
+    this.page = Number(this.$stateParams.page) || 1;
     this.perPage = 50;
     this.apiUrl = 'http://ec2-54-84-251-148.compute-1.amazonaws.com/businesses/';
 
@@ -19,18 +21,7 @@ class businessesListController {
             </div>
           `,
         },
-        { name: 'address'},
-        { name: 'address2'},
-        { name: 'city'},
-        { name: 'country'},
-        { name: 'created_at'},
-        { name: 'id'},
         { name: 'name'},
-        { name: 'phone'},
-        { name: 'state'},
-        { name: 'uuid'},
-        { name: 'website'},
-        { name: 'zip'},
       ],
       onRegisterApi: function(gridApi) {
         ctrl.fetchBusinesses();
@@ -52,12 +43,21 @@ class businessesListController {
     if (this.page < 1) {
       this.page = 1;
     }
-    this.fetchBusinesses();
+
+    this.$state.transitionTo(this.$state.current.name, {page: this.page}, { notify: false })
+    .then(() => {
+      this.fetchBusinesses();
+    })
   }
 
   nextPage() {
     this.page += 1;
-    this.fetchBusinesses();
+
+    this.$state.transitionTo(this.$state.current.name, {page: this.page}, { notify: false })
+    .then(() => {
+      this.fetchBusinesses();
+    })
+
   }
 }
 
