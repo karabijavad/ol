@@ -6,16 +6,33 @@
       <div ng-if="$ctrl.loadingBusiness">
         Loading...
       </div>
-      address: <span ng-bind="$ctrl.business.address"></span><br/>
-      address2: <span ng-bind="$ctrl.business.address2"></span><br/>
-      city: <span ng-bind="$ctrl.business.city"></span><br/>
-      country: <span ng-bind="$ctrl.business.country"></span><br/>
-      created_at: <span ng-bind="$ctrl.business.created_at"></span><br/>
-      name: <span ng-bind="$ctrl.business.name"></span><br/>
-      phone: <span ng-bind="$ctrl.business.phone"></span><br/>
-      state: <span ng-bind="$ctrl.business.state"></span><br/>
-      uuid: <span ng-bind="$ctrl.business.uuid"></span><br/>
-      website: <span ng-bind="$ctrl.business.website"></span><br/>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>created_at</th>
+            <th>uuid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a ng-href="{{$ctrl.business.website}}" ng-bind="$ctrl.business.name"></a>
+            </td>
+            <td>
+              {{$ctrl.business.address}} {{$ctrl.business.address2}},
+              {{$ctrl.business.city}}, {{$ctrl.business.state}} {{$ctrl.business.country}}
+            </td>
+            <td><span ng-bind="$ctrl.business.phone"></span></td>
+            <td><span ng-bind="$ctrl.business.created_at"></span></td>
+            <td>
+              <span ng-bind="$ctrl.business.uuid.substr(0, 4)"></span>...
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </main>
