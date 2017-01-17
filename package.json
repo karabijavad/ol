@@ -9,6 +9,7 @@
     "angular-ui-router": "^1.0.0-beta.1",
     "bootstrap": "^3.3.7",
     "file-loader": "^0.9.0",
+    "ngmap": "^1.17.8",
     "normalize.css": "^3.0.3"
   },
   "devDependencies": {

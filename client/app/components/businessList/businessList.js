@@ -1,11 +1,14 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import uiGrid from 'angular-ui-grid';
+import NgMap from 'ngmap';
+
 import businessListComponent from './businessList.component';
 
 let businessListModule = angular.module('businessList', [
   uiRouter,
   uiGrid,
+  NgMap,
   'ui.grid.pagination',
 ])
 
