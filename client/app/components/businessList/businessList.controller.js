@@ -1,13 +1,13 @@
 class businessesListController {
-  constructor($http, $state, $stateParams) {
+  constructor($http, $state, $stateParams, ownLocalService) {
     let ctrl = this;
     this.$http = $http;
     this.$state = $state;
     this.$stateParams = $stateParams;
+    this.ownLocalService = ownLocalService;
 
     this.page = Number(this.$stateParams.page) || 1;
     this.perPage = 50;
-    this.apiUrl = 'http://ec2-54-84-251-148.compute-1.amazonaws.com/businesses/';
 
     this.gridOptions = {
       useExternalPagination: true,
@@ -30,11 +30,11 @@ class businessesListController {
   }
 
   fetchBusinesses() {
-    return this.$http.get(this.apiUrl, {params: {
-      page: this.page,
-      per_page: this.perPage,
-    }}).then((response) => {
+    return this.ownLocalService.fetchBusinesses(this.page, this.perPage)
+    .then((response) => {
       this.gridOptions.data = response.data.businesses;
+    }).catch((response) => {
+      this.errorMessage = response.statusText;
     });
   }
 
